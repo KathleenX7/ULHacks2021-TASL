@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <title>Teaching American Sign Language</title>
+    <link rel="icon" href="./Images/Logo/ShortLogo.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body onload="onConnect()">
+    <img src="./Images/Logo/LongLogo.png" alt="TASL| Teaching American Sign Language" style="height: 50px;">
+    <hr style="background-color: #128193; height: 4px "/>
+    <table style="width: 60%; margin-left:20%; text-align: left;">
+        <tr>
+            <th>
+                <label class="infoText"> Username: </label>
+                <br>
+                <input type="text" id="tUser" name="tUser" class = "textBox"><br>
+                <br>
+            </th>
+        </tr>
+        <tr>
+          <th>
+            <label class="infoText"> Password: </label>
+            <br>
+            <input type="text" id="tPass" name="tPass" class = "textBox"><br>
+            <br>
+          </th>
+        </tr>
+    </table>
+    <table style="width: 60%; margin-left:20%; text-align: left;">
+        <tr>
+            <th style="text-align: left;">
+                <button id="btnReg" name="btnReg" style="width:80px; height: 30px; border-color:#128193; border-radius: 2px; color: #128193; background-color: #d1e9edff; font-family: Poppins, Helvetica, sans-serif; vertical-align: middle; border-style:solid;">Register</button>
+            </th>
+            <th style="text-align:right;">
+                
+                <button id="btnLog" name="btnLog" style="width:80px; height: 30px; border-color:#128193; border-radius: 2px; color: #128193; background-color: #d1e9edff; font-family: Poppins, Helvetica, sans-serif; vertical-align: middle; border-style:solid;">Log In</button>
+            
+            </th>
+        </tr>
+    </table>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./script.js"></script>
+</body>
