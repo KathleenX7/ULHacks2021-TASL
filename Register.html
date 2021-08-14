@@ -10,7 +10,7 @@
     <hr style="background-color: #128193; height: 4px "/>
     <!-- Login Info -->
     <table class = "registerInfo">
-        <th>
+        <td style = "width: 70%; vertical-align: top;">
             <label class="infoText"> Name: </label>
             <br>
             <input type="text" id="rName" name="rName" class = "textBox"><br>
@@ -23,29 +23,23 @@
 
             <label class="infoText"> Password: </label>
             <br>
-            <input type="text" id="rPass" name="rPass" class = "textBox" type="password"><br>
-        </th>
-        <th style = "margin-right:10%;">
-            <label class="infoText">choose your avatar!</label><br>
-            <button onclick="increasePfpCount()">^</button><br>
-            <img id="pfp" src="Images/Koro/KoroOriginal.png" width="256"><br>
-            <button onclick="decreasePfpCount()">v</button>
-        </th>
+            <input type="text" id="rPass" name="rPass" class = "textBox" type="password">
+            
+            <label id="errorMes" class="error"> </label>
+            <br>
+            
+            <button id="btnReg" name="btnReg" class = "button buttonRight" onClick="sendRegisterInfo()"> <span> REGISTER</span></button>
+        </td>
+        <td >
+            <label class="infoText" style="display: block; text-align: center;">choose your avatar!</label>
+            <button onclick="increasePfpCount()" class = "arrow"><img src="./Images/Other/UpArrow.png" alt="TASL| Teaching American Sign Language" style="height: 30px;"> </button>
+            <img id="pfp" src="Images/Koro/KoroOriginal.png" class = "center">
+            <button onclick="decreasePfpCount()"class = "arrow"><img src="./Images/Other/DownArrow.png" alt="TASL| Teaching American Sign Language" style="height: 30px;"></button>
+        </td>
     </table>
 
-    <!-- Buttons -->
-    <table class = "registerInfo">
-        <tr>
-            <th style="text-align:left; vertical-align: top;">
-                <label id="errorMes" class="error"> <br> </label>
-            </th>
-            <th style="text-align:right;">
-                <button id="btnReg" name="btnReg" class = "button" onClick="sendRegisterInfo()"> <span> REGISTER</span></button>
-            </th>
-        </tr>
-    </table>
-    <div">
-        <img src="./Images/Logo/Mascot.png" alt="TASL Mascot" style="float:right; height:200px; transform:rotate(15deg);">
+    <div>
+        <img src="./Images/Logo/Mascot.png" alt="TASL Mascot" style="float:left; height:200px; transform:rotate(-15deg); ">
     </div>
     
 

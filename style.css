@@ -35,6 +35,7 @@ p{
 .error{
     color: red;
     font-size: 10px;
+    text-align: left;
 }
 .button{
     font-family: "Poppins", monospace;
@@ -81,10 +82,32 @@ p{
   }
 
 .registerInfo{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-collapse: collapse;
     outline:10px;
-    width: 60%;
+    width: 96%;
     margin-left:2%;
     text-align:left;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-size:0;
+  }
+
+.arrow{
+    display:block;
+    background-color:#ebfcff;
+    border-color: #ebfcff;
+    outline-color:#ebfcff;
+    box-shadow: none;
+    margin:0 auto;
+    border-style: solid;
+    font-size:0;
+}
+
+.buttonRight{
+    float: right; 
 }
