@@ -126,3 +126,45 @@ p{
     width:24%;
     text-align: center;
 }
+
+.navigation{
+    width: 100%;
+}
+
+.navBtn{
+    font-family: "Poppins", monospace;
+    font-size:15px;
+    width:150px; 
+    height: 35px; 
+    border-color:#128193; 
+    border-radius: 10px; 
+    color: #128193; 
+    background-color: #d1e9edff; 
+    border-style:solid;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 1px 1px 1px grey;
+}
+.navBtn:hover{
+    background-color: #acdbe3ff; 
+}
+.helpInfo{
+    font-family: "Poppins", monospace;
+    font-size:15px;
+    width:35px; 
+    height: 35px; 
+    border-color:#128193; 
+    border-radius: 50%; 
+    color: #128193; 
+    background-color: #d1e9edff; 
+    border-style:solid;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 1px 1px 1px grey;
+}
+
+.bottomRight{
+    position:fixed;
+    left:10px;
+    bottom:10px;
+}
