@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body>
+<body onload="requestLevel()">
     <table class="navigation">
         <tr>
             <td style="width: 250px">
@@ -36,7 +36,7 @@
                 <button id="leader" class="navBtn" > <span> LEADERBOARD</span></button>
             </td>
             <td>
-                <button id="logOut" class="navBtn" style="float:right"> <span> LOG OUT </span></button>
+                <a href="/logout"><button id="logOut" class="navBtn" style="float:right"> <span> LOG OUT </span></button></a>
             </td>
         </tr>
     </table>
@@ -47,43 +47,46 @@
         <br>
     <table class = "gameTable">
         <tr>
+            <td id="questionNumber">Question number: </td>
+        </tr>
+        <tr>
             <td rowspan="3" class = "pictureCell content" >
-                <img src="./Images/2-Numbers/1.png" alt="questionPic" style="width:96%;">
+                <img src="" alt="questionPic" style="width:96%;" id="image">
             </td>
             <td style = "padding-left: 10px">
-                <input type="radio" id="A" value="A">
-                <p>A.  </p>
+                <input type="radio" id="A" value="A" name="answer">
                 <label id="aValue" class= "options"> Answer </label>
                 
             </td>
             <td >
-                <input type="radio" id="B" value="C">
-                <p>B.  </p>
-                <label id="aValue" class= "options"> Answer </label>
+                <input type="radio" id="B" value="B" name="answer"> 
+                <label id="bValue" class= "options"> Answer </label>
             </td>
         </tr>
         <tr>
             <td style = "padding-left: 10px">
-                <input type="radio" id="C" value="C">
-                <p>C.  </p>
-                <label id="aValue" class= "options"> Answer </label>
+                <input type="radio" id="C" value="C" name="answer">
+                <label id="cValue" class= "options"> Answer </label>
                 
             </td>
             <td>
-                <input type="radio" id="D" value="D">
-                <p>D.  </p>
-                <label id="aValue" class= "options"> Answer </label>
+                <input type="radio" id="D" value="D" name="answer">
+                <label id="dValue" class= "options"> Answer </label>
             </td>
         </tr>
         <tr>
             <td colspan="2" style ="text-align: center;">
-                <label id="aValue" > WRONG! Correct Answer: A </label>
+                <label id="feedback">  </label>
             </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="navBtn" style="float:right" onclick="dealWithButton()"><span id="submitOrNext">Submit</span></button></td>
         </tr>
     </table>
 
     <div>
-        <label class="bottomRight""> <img src="./Images/Other/Starfish.png" alt="Stars" height="40px"> </label>
+        <label class="bottomRight"> <img src="./Images/Other/Starfish.png" alt="Stars" height="40px"> </label>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./gamescript.js"></script>

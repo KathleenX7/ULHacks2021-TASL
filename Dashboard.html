@@ -11,7 +11,7 @@
         } */
     </style>
 </head>
-<body>
+<body onload="requestStarCount()">
     <table class = "navigation">
         <tr>
             <td>
@@ -37,35 +37,37 @@
     <table class = "registerInfo">
         <tr >
             <td class = "dashboardCell">
-                Alphabet
+                <button onclick="window.location.href='/1'" class="navBtn options"><span>Alphabet</span></button>
             </td>
             <td class = "dashboardCell">
-                Numbers
+                <button onclick="window.location.href='/2'" class="navBtn options"><span>Numbers</span></button>
             </td >
             <td class = "dashboardCell">
-                One Word Questions
+                <button onclick="window.location.href='/3'" class="navBtn options"><span>One Word Questions</span></button>
             </td>
             <td class = "dashboardCell">
-                Adjectives
+                <button onclick="window.location.href='/4'" class="navBtn options"><span>Adjectives</span></button>
             </td>
         </tr>
         <tr>
             <td class = "dashboardCell">
-                Nouns
+                <button onclick="window.location.href='/5'" class="navBtn options"><span>Nouns</span></button>
             </td>
             <td class = "dashboardCell">
-                Verbs
+                <button onclick="window.location.href='/6'" class="navBtn options"><span>Verbs</span></button>
             </td>
             <td class = "dashboardCell">
-                Common Expressions
+                <button onclick="window.location.href='/7'" class="navBtn options"><span>Common Expressions</span></button>
             </td>
             <td class = "dashboardCell">
-                Final Exam
+                <button onclick="window.location.href='/8'" class="navBtn options"><span>Final Exam</span></button>
             </td>
         </tr>
     </table>
     
     <div>
-        <label class="bottomRight" style="font-size: 30px;"> <img src="./Images/Other/Starfish.png" alt="Stars" height="30px"> –  </label>
+        <label class="bottomRight" style="font-size: 30px;"> <img src="./Images/Other/Starfish.png" alt="Stars" height="30px"> <p id="starCount">-</p>  </label>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./dashboardscript.js"></script>
 </body>
