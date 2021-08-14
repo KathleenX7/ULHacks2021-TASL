@@ -16,7 +16,7 @@ function sendLoginInfo() {
     }
 }
 
-socket.on('redirect', function(redirect) {
+socket.on("redirect", (redirect) => {
     console.log(redirect);
     window.location.href  = redirect;
 });
