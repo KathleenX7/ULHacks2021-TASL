@@ -66,5 +66,5 @@ socket.on("question", (data) => {
 });
 
 socket.on("results", (response) => {
-    feedback.innerHTML = response;
+    feedback.innerHTML = response.feedback;
 });
