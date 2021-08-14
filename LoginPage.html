@@ -1,50 +1,60 @@
 <!DOCTYPE html>
+
 <head>
     <title>Teaching American Sign Language</title>
     <link rel="icon" href="./Images/Logo/ShortLogo.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
+
 <body>
+    <!-- Header -->
     <img src="./Images/Logo/LongLogo.png" alt="TASL| Teaching American Sign Language" style="height: 50px;">
-    <hr style="background-color: #128193; height: 4px "/>
+    <hr style="background-color: #128193; height: 4px " />
+
     <!-- Login Info -->
-    <table class = "info">
-        <tr>
-            <th>
-                <label class="infoText"> Username: </label>
-                <br>
-                <input type="text" id="tUser" name="tUser" class = "textBox"><br>
-                <br>
-            </th>
-        </tr>
-        <tr>
-          <th>
-            <label class="infoText"> Password: </label>
-            <br>
-            <input type="text" id="tPass" name="tPass" class = "textBox"><br>
-            
-            <label id = "errorMes" class="error"> <br> </label>
-          </th>
-        </tr>
-    </table>
+    <!-- Username and Password -->
+    <div>
+        <table class="loginInfo">
+            <tr>
+                <th>
+                    <label class="infoText"> Username: </label>
+                    <br>
+                    <input type="text" id="tUser" name="tUser" class="textBox"><br>
+                    <br>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label class="infoText"> Password: </label>
+                    <br>
+                    <input type="text" id="tPass" name="tPass" class="textBox"><br>
 
-    <!-- Buttons -->
-    <table class = "info">
-        <tr>
-            <th style="text-align: left;">
-                <button id="btnReg" name="btnReg" class = "button"> <span>REGISTER</span> </button>
-            </th>
-            <th style="text-align:right;">
-                <button id="btnLog" name="btnLog" class = "button" onClick="sendLoginInfo()"> <span> LOG IN</span></button>
-            </th>
-        </tr>
-    </table>
-    <div">
-        <img src="./Images/Logo/Mascot.png" alt="TASL Mascot" style="float:right; height:200px; transform:rotate(15deg);">
+                    <label id="errorMes" class="error"> <br> </label>
+                </th>
+            </tr>
+        </table>
+
+        <!-- Buttons -->
+        <table class="loginInfo">
+            <tr>
+                <th style="text-align: left;">
+                    <button id="btnReg" name="btnReg" class="button"> <span>REGISTER</span> </button>
+                </th>
+                <th style="text-align:right;">
+                    <button id="btnLog" name="btnLog" class="button" onClick="sendLoginInfo()"> <span> LOG
+                            IN</span></button>
+                </th>
+            </tr>
+        </table>
     </div>
-    
+    <!-- Mascot -->
+    <div">
+        <img src="./Images/Logo/Mascot.png" alt="TASL Mascot"
+            style="float:right; height:200px; transform:rotate(15deg);">
+        </div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./script.js"></script>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./script.js"></script>
 </body>
