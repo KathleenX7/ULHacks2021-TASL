@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
         // not logged in
         res.redirect("/login"); // so send log in
     } else {
+        // should redirect to dashboard
         res.redirect("/game");
     }
 });
@@ -43,6 +44,10 @@ app.get("/loggedin", (req, res) => {
     userCookie = {username: users[users.length - 1].username, password: users[users.length - 1].password};
     res.cookie("userData", userCookie);
     res.redirect("/");
+});
+
+app.get("/dashboard", (req, res) => {
+    //dashboard
 });
 
 app.get("/game", (req, res) => {

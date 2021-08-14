@@ -20,3 +20,8 @@ socket.on("redirect", (redirect) => {
     console.log(redirect);
     window.location.href  = redirect;
 });
+
+socket.on("login error", (errorMsg) => {
+    var errorLabel = document.getElementById("errorMes");
+    errorLabel.textContent = `Error: ${errorMsg}`;
+});
