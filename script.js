@@ -11,7 +11,12 @@ var login = document.getElementById("btnLog");
 
 function sendLoginInfo() {
     if ((userText.value !== "") && (passText.value !== "")) {
-        console.log(userText.value + passText.value);
-        // socket.emit("login", );
+        console.log({username:userText.value, password:passText.value});
+        socket.emit("login", {username:userText.value, password:passText.value});
     }
 }
+
+socket.on('redirect', function(redirect) {
+    console.log(redirect);
+    window.location.href  = redirect;
+});
