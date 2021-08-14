@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
-<body>
+<body onload="setImage()">
     <img src="./Images/Logo/LongLogo.png" alt="TASL| Teaching American Sign Language" style="height: 50px;">
     <hr style="background-color: #128193; height: 4px "/>
     <!-- Login Info -->
@@ -26,7 +26,10 @@
             <input type="text" id="rPass" name="rPass" class = "textBox" type="password"><br>
         </th>
         <th style = "margin-right:10%;">
-            <label class="infoText"> Username: </label>
+            <label class="infoText">choose your avatar!</label><br>
+            <button onclick="increasePfpCount()">^</button><br>
+            <img id="pfp" src="Images/Koro/KoroOriginal.png" width="256"><br>
+            <button onclick="decreasePfpCount()">v</button>
         </th>
     </table>
 
@@ -37,7 +40,7 @@
                 <label id="errorMes" class="error"> <br> </label>
             </th>
             <th style="text-align:right;">
-                <button id="btnReg" name="btnReg" class = "button" onClick="sendLoginInfo()"> <span> REGISTER</span></button>
+                <button id="btnReg" name="btnReg" class = "button" onClick="sendRegisterInfo()"> <span> REGISTER</span></button>
             </th>
         </tr>
     </table>
