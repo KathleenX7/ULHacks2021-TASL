@@ -96,7 +96,6 @@ socket.on("results", (response) => {
 
 socket.on("done", (data) => {
     console.log(data);
-    let rightAnswers = data.questionsRight;
     // do something with this info?
     whyAmIEvenKeepingTrackOfThis.innerHTML = "Done";
 });

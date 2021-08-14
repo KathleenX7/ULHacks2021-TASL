@@ -102,7 +102,6 @@ app.get("/register", (req, res) => {
 
 // rip cookies
 app.get("/loggedin", (req, res) => {
-    console.log(users);
     userCookie = {username: userToLogin.username, password: userToLogin.password};
     res.cookie("userData", userCookie);
     res.cookie("pfp", userToLogin.pfp);
@@ -126,6 +125,7 @@ app.get("/game", (req, res) => {
         if (users[i].username === user.username) {
             users[i].level = level;
             users[i].question = {questionsRight: 0, questionsAnswered: 0};
+            users[i].stars = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0};
         }
     }
     res.sendFile(__dirname + "/Game.html");
@@ -198,10 +198,8 @@ io.sockets.on("connection", (socket) => {
         console.log(regData);
         let username = regData.username;
         let everythingWorkedFineAndDidtBreak = true;
-        console.log(users);
         for(let i = 0;i < users.length;i++) {
             let user = users[i];
-            console.log(`user: ${user}`);
             if (user.username === username) {
                 io.to(socket.id).emit("error", "This username is taken");
                 everythingWorkedFineAndDidtBreak = false;
@@ -216,7 +214,6 @@ io.sockets.on("connection", (socket) => {
     socket.on("request question", (username) => {
         for(let i = 0;i < users.length;i++) {
             if (users[i].username === username) {
-                console.log(users[i]);
                 let level = users[i].level;
                 //send question
                 if (level === "1"){
@@ -327,7 +324,11 @@ io.sockets.on("connection", (socket) => {
         }
         user.question.questionsAnswered++;
         if (user.question.questionsAnswered >= 7) {
-            io.to(socket.id).emit("done", user.question);
+            if (user.stars[user.level] < 3 - (user.question.questionsAnswered - user.question.questionsRight)) {
+                user.stars[user.level] = 3 - (user.question.questionsAnswered - user.question.questionsRight);
+            }
+            io.to(socket.id).emit("done", user.stars, user.level);
+            user.question = {questionsRight: 0, questionsAnswered: 0};
         }
     });
 });
