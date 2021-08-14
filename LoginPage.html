@@ -28,7 +28,7 @@
                 <th>
                     <label class="infoText"> Password: </label>
                     <br>
-                    <input type="text" id="tPass" name="tPass" class="textBox"><br>
+                    <input type="text" id="tPass" name="tPass" class="textBox" type="password"><br>
 
                     <label id="errorMes" class="error"> <br> </label>
                 </th>
@@ -39,11 +39,10 @@
         <table class="loginInfo">
             <tr>
                 <th style="text-align: left;">
-                    <button id="btnReg" name="btnReg" class="button"> <span>REGISTER</span> </button>
+                    <button id="btnReg" name="btnReg" class="button" onclick="window.location.href = '/register'"> <span>REGISTER</span> </button>
                 </th>
                 <th style="text-align:right;">
-                    <button id="btnLog" name="btnLog" class="button" onClick="sendLoginInfo()"> <span> LOG
-                            IN</span></button>
+                    <button id="btnLog" name="btnLog" class="button" onClick="sendLoginInfo()"> <span> LOG IN</span></button>
                 </th>
             </tr>
         </table>

@@ -30,12 +30,16 @@ app.get('/', (req, res) => {
         res.redirect("/login"); // so send log in
     } else {
         // should redirect to dashboard
-        res.redirect("/game");
+        res.redirect("/dashboard");
     }
 });
 
 app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/LoginPage.html");
+});
+
+app.get("/register", (req, res) => {
+    res.sendFile(__dirname + "/Register.html");
 });
 
 // rip cookies
@@ -59,6 +63,6 @@ io.sockets.on("connection", (socket) => {
     socket.on("login", (msg) => {
         console.log(msg);
         users.push({socket: socket.id, username: msg.username, password: msg.password});
-        io.to(socket.id).emit("redirect", "/loggedin");
+        io.to(socket.id).emit("redirect", "/dashboard");
     });
 });
