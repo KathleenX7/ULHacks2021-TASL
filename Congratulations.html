@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
-<body>
+<body onload="setTopic()">
     <table class="navigation">
         <tr>
             <td style="width: 250px">
@@ -13,7 +13,7 @@
                 <a href="./HowToPlay.html" target="_blank"><button id="howPlay" class="helpInfo"> <span> ?</span></button></a>
             </td>
             <td rowspan="2" style ="text-align: center;">
-                <label id="topic"> <h>Topic</h> </label>
+                <h><label id="topic"> Topic </label></h>
             </td>
             <td style="width: 250px">
                 <button id="userInfo" class="navBtn"style="float:right"> <span> USER INFO</span></button>
@@ -37,8 +37,7 @@
             style="height:200px;">
         <br>
         <label id = "resMessage" > <h>CONGRATULATIONS!</h> </label> <br>
-        <label id = "score" style = "font-size: 30px;"> Score </label>
     </div>
-
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="morescripts.js"></script>
 </body>

@@ -94,8 +94,11 @@ socket.on("results", (response) => {
     feedback.innerHTML = response.feedback;
 });
 
-socket.on("done", (data) => {
-    console.log(data);
-    // do something with this info?
+socket.on("done", (passStatus) => {
+    if (passStatus) {
+        window.location.href = "/Congratulations.html";
+    } else {
+        window.location.href = "/Fail.html";
+    }
     whyAmIEvenKeepingTrackOfThis.innerHTML = "Done";
 });
