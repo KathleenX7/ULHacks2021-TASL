@@ -125,6 +125,7 @@ app.get("/game", (req, res) => {
     for(let i = 0;i < users.length;i++) {
         if (users[i].username === user.username) {
             users[i].level = level;
+            users[i].question = {questionsRight: 0, questionsAnswered: 0};
         }
     }
     res.sendFile(__dirname + "/Game.html");
@@ -306,13 +307,27 @@ io.sockets.on("connection", (socket) => {
                 }
             }
         }
+        // loop through users and find the right user
+        let user;
+        for(let i = 0;i < users.length;i++) {
+            if (users[i].username === data.username) {
+                user = users[i];
+                // users[i].question = {questionsRight: 0, questionsAnswered: 0};
+            }
+        }
         let answer = data.answer;
+        
         if (correctAnswer === answer) {
             //answer is right
             io.to(socket.id).emit("results", {feedback: "Correct!", correct: true});
+            user.question.questionsRight++;
         } else {
             // answer is wrong
-            io.to(socket.id).emit("results", {feedback: `Incorrect, the right answer is ${image}`, correct: false});
+            io.to(socket.id).emit("results", {feedback: `Incorrect, the right answer is ${correctAnswer}`, correct: false});
+        }
+        user.question.questionsAnswered++;
+        if (user.question.questionsAnswered >= 7) {
+            io.to(socket.id).emit("done", user.question);
         }
     });
 });

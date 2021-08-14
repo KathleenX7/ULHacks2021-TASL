@@ -56,7 +56,7 @@ function requestLevel() {
 function submitQuestion() {
     for(let i = 0;i < radios.length;i++) {
         if (radios[i].checked) {
-            socket.emit("answer", {image: image.src, answer: radios[i].value});
+            socket.emit("answer", {username: username, image: image.src, answer: radios[i].value});
         }
     }
 }
@@ -71,6 +71,9 @@ function dealWithButton() {
     } else if (whyAmIEvenKeepingTrackOfThis.innerHTML === "Next") {
         requestLevel();
         whyAmIEvenKeepingTrackOfThis.innerHTML = "Submit";
+        feedback.innerHTML = "";
+    } else if (whyAmIEvenKeepingTrackOfThis.innerHTML === "Done") {
+        window.location.href = "/dashboard";
     }
 }
 
@@ -89,4 +92,11 @@ socket.on("question", (data) => {
 
 socket.on("results", (response) => {
     feedback.innerHTML = response.feedback;
+});
+
+socket.on("done", (data) => {
+    console.log(data);
+    let rightAnswers = data.questionsRight;
+    // do something with this info?
+    whyAmIEvenKeepingTrackOfThis.innerHTML = "Done";
 });
