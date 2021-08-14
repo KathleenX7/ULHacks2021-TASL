@@ -64,23 +64,28 @@ io.sockets.on("connection", (socket) => {
     console.log("new user");
     socket.on("login", (loginData) => {
         let everythingWorkedFineAndDidntBreak = false;
-        for (user in users) {
-            if ((user.username == loginData.username) && (user.password == loginData)) {
+        for (let i = 0 ;i < users.length;i++) {
+            const user = users[i];
+            console.log(user.username + user.password);
+            if ((user.username === loginData.username) && (user.password === loginData.password)) {
                 everythingWorkedFineAndDidntBreak = true;
                 userToLogin = {username: loginData.username, password: loginData.password, pfp: user.pfp};
+                io.to(socket.id).emit("redirect", "/loggedin");
             }
         }
         if (!everythingWorkedFineAndDidntBreak) {
             io.to(socket.id).emit("error", "Username or password is incorrect");
         }
-        io.to(socket.id).emit("redirect", "/dashboard");
     });
     socket.on("register", (regData) => {
         console.log(regData);
         let username = regData.username;
         let everythingWorkedFineAndDidtBreak = true;
-        for(user in users) {
-            if (user.username == username) {
+        console.log(users);
+        for(let i = 0;i < users.length;i++) {
+            let user = users[i];
+            console.log(`user: ${user}`);
+            if (user.username === username) {
                 io.to(socket.id).emit("error", "This username is taken");
                 everythingWorkedFineAndDidtBreak = false;
             }
@@ -90,5 +95,5 @@ io.sockets.on("connection", (socket) => {
             users.push(regData);
             io.to(socket.id).emit("redirect", "/login");
         }
-    })
+    });
 });
