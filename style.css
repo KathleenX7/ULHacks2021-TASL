@@ -162,3 +162,9 @@ p{
     display: inline-block;
     box-shadow: 1px 1px 1px grey;
 }
+
+.bottomRight{
+    position:fixed;
+    left:10px;
+    bottom:10px;
+}
