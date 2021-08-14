@@ -3,6 +3,12 @@
  */
 
 const koroImages = [
+    "KoroOriginal.png",
+    "koroPink copy.png",
+    "koroSpike.png",
+    "koroWeirdSpike.png",
+    "koroWow.png",
+    "KoroYes.png",
     "koro😐.png", 
     "KoroAngry.png", 
     "koroAngry2.png", 
@@ -11,13 +17,8 @@ const koroImages = [
     "KoroGoo.png", 
     "KoroHehe.png", 
     "koroHuman.png",
-    "KoroNo.png",
-    "KoroOriginal.png",
-    "koroPink copy.png",
-    "koroSpike.png",
-    "koroWeirdSpike.png",
-    "koroWow.png",
-    "KoroYes.png"
+    "KoroNo.png"
+    
 ];
 
 let pfpCount = 0;
