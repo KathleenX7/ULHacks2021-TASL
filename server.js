@@ -125,7 +125,6 @@ app.get("/game", (req, res) => {
         if (users[i].username === user.username) {
             users[i].level = level;
             users[i].question = {questionsRight: 0, questionsAnswered: 0};
-            users[i].stars = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0};
         }
     }
     res.sendFile(__dirname + "/Game.html");
@@ -208,6 +207,7 @@ io.sockets.on("connection", (socket) => {
         if (everythingWorkedFineAndDidtBreak) {
             // registration successful
             users.push(regData);
+            users[users.length - 1].stars = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0};
             io.to(socket.id).emit("redirect", "/login");
         }
     });
@@ -331,4 +331,12 @@ io.sockets.on("connection", (socket) => {
             user.question = {questionsRight: 0, questionsAnswered: 0};
         }
     });
+    socket.on("star request", (username) => {
+        for (let i = 0;i < users.length;i++) {
+            if (users[i].username === username) {
+                // send back the star data
+                io.to(socket.id).emit("stars", users[i].stars);
+            }
+        }
+    })
 });
