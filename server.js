@@ -12,6 +12,7 @@ const io = require("socket.io")(server);
 app.use(cookieParser());
 
 var users = [];
+var userToLogin = null;
 
 app.use(express.static(__dirname));
 
@@ -45,13 +46,14 @@ app.get("/register", (req, res) => {
 // rip cookies
 app.get("/loggedin", (req, res) => {
     console.log(users);
-    userCookie = {username: users[users.length - 1].username, password: users[users.length - 1].password};
+    userCookie = {username: userToLogin.username, password: userToLogin.password};
     res.cookie("userData", userCookie);
-    res.redirect("/");
+    res.cookie("pfp", userToLogin.pfp);
+    res.redirect("/dashboard");
 });
 
 app.get("/dashboard", (req, res) => {
-    //dashboard
+    res.sendFile(__dirname + "/Dashboard.html");
 });
 
 app.get("/game", (req, res) => {
@@ -60,9 +62,33 @@ app.get("/game", (req, res) => {
 
 io.sockets.on("connection", (socket) => {
     console.log("new user");
-    socket.on("login", (msg) => {
-        console.log(msg);
-        users.push({socket: socket.id, username: msg.username, password: msg.password});
+    socket.on("login", (loginData) => {
+        let everythingWorkedFineAndDidntBreak = false;
+        for (user in users) {
+            if ((user.username == loginData.username) && (user.password == loginData)) {
+                everythingWorkedFineAndDidntBreak = true;
+                userToLogin = {username: loginData.username, password: loginData.password, pfp: user.pfp};
+            }
+        }
+        if (!everythingWorkedFineAndDidntBreak) {
+            io.to(socket.id).emit("error", "Username or password is incorrect");
+        }
         io.to(socket.id).emit("redirect", "/dashboard");
     });
+    socket.on("register", (regData) => {
+        console.log(regData);
+        let username = regData.username;
+        let everythingWorkedFineAndDidtBreak = true;
+        for(user in users) {
+            if (user.username == username) {
+                io.to(socket.id).emit("error", "This username is taken");
+                everythingWorkedFineAndDidtBreak = false;
+            }
+        }
+        if (everythingWorkedFineAndDidtBreak) {
+            // registration successful
+            users.push(regData);
+            io.to(socket.id).emit("redirect", "/login");
+        }
+    })
 });

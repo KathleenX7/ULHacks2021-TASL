@@ -28,11 +28,17 @@ var nameText = document.getElementById("rName");
 var userText = document.getElementById("rUser");
 var passText = document.getElementById("rPass");
 
+/**
+ * Sets the image based on count
+ */
 function setImage() {
     var pfp = document.getElementById("pfp");
     pfp.src = `/Images/Koro/${koroImages[pfpCount%koroImages.length]}`;
 }
 
+/**
+ * Increases the count of profile pictures and bounds it
+ */
 function increasePfpCount() {
     pfpCount++;
     if(pfpCount > koroImages.length) {
@@ -41,6 +47,9 @@ function increasePfpCount() {
     setImage();
 }
 
+/**
+ * Decreases count of profile pictures and bounds it
+ */
 function decreasePfpCount() {
     pfpCount--;
     while (pfpCount < 0) {
@@ -49,10 +58,21 @@ function decreasePfpCount() {
     setImage();
 }
 
+/**
+ * Sends registration info to server
+ */
 function sendRegisterInfo() {
+    if ((nameText.value !== "") && (userText.value !== "") && (passText.value !== "")) {
+        socket.emit("register", {name: nameText.value, username: userText.value, password: passText.value, pfp: koroImages[pfpCount%koroImages.length]});
+    }
 }
 
-socket.on("login error", (errorMsg) => {
+socket.on("error", (errorMsg) => {
     var errorLabel = document.getElementById("errorMes");
     errorLabel.textContent = `Error: ${errorMsg}`;
+});
+
+socket.on("redirect", (redirect) => {
+    console.log(redirect);
+    window.location.href  = redirect;
 });
