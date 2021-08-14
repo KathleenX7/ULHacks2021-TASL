@@ -59,7 +59,6 @@ h{
 .button:hover{
     background-color: #acdbe3ff; 
 }
-
 .button span {
     cursor: pointer;
     display: inline-block;
@@ -97,7 +96,7 @@ h{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 60%;
     font-size:0;
   }
 
@@ -138,7 +137,7 @@ h{
 .navBtn{
     font-family: "Poppins", monospace;
     font-size:15px;
-    width:150px; 
+    width:175px; 
     height: 35px; 
     border-color:#128193; 
     border-radius: 10px; 
@@ -152,6 +151,45 @@ h{
 .navBtn:hover{
     background-color: #acdbe3ff; 
 }
+.navBtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .navBtn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .navBtn:hover span {
+    padding-right: 10px;
+  }
+  
+  .navBtn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.navBtnClicked{
+    font-family: "Poppins", monospace;
+    font-size:15px;
+    width:175px; 
+    height: 35px; 
+    border-color:#128193; 
+    border-radius: 10px; 
+    color: #128193; 
+    background-color: #acdbe3ff; 
+    border-style:solid;
+    display: inline-block;
+    box-shadow: 1px 1px 1px grey;
+}
+
 .helpInfo{
     font-family: "Poppins", monospace;
     font-size:15px;
