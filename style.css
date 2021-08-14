@@ -239,3 +239,18 @@ h{
     line-height: 80px;
     text-align: center;
 }
+
+.tutorial{
+    width:96%;
+    margin-left:2%;
+    border:#128193 solid 4px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tutorialCol{
+    width: 16%;
+    border:#128193 solid 2px;
+    text-align: center;
+    border-collapse: collapse;
+}
