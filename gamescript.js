@@ -18,6 +18,10 @@ var radC = document.getElementById("C");
 var radD = document.getElementById("D");
 
 var feedback = document.getElementById("feedback");
+var questionCounter = document.getElementById("questionNumber");
+var whyAmIEvenKeepingTrackOfThis = document.getElementById("submitOrNext");
+
+let questionNumber = 0;
 
 /**
  * Parses cookies and stuff to figure out what the username is
@@ -40,15 +44,33 @@ function getUsername() {
  * Requests a single question
  */
 function requestLevel() {
+    questionNumber++;
+    questionCounter.innerHTML = `Question number: ${questionNumber}`;
     socket.emit("request question", username);
     console.log("sent request");
 }
 
+/**
+ * Submits the current answer
+ */
 function submitQuestion() {
     for(let i = 0;i < radios.length;i++) {
         if (radios[i].checked) {
             socket.emit("answer", {image: image.src, answer: radios[i].value});
         }
+    }
+}
+
+/**
+ * Handles what happens when button is clicked
+ */
+function dealWithButton() {
+    if (whyAmIEvenKeepingTrackOfThis.innerHTML === "Submit") {
+        submitQuestion();
+        whyAmIEvenKeepingTrackOfThis.innerHTML = "Next";
+    } else if (whyAmIEvenKeepingTrackOfThis.innerHTML === "Next") {
+        requestLevel();
+        whyAmIEvenKeepingTrackOfThis.innerHTML = "Submit";
     }
 }
 

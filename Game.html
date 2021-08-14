@@ -47,6 +47,9 @@
         <br>
     <table class = "gameTable">
         <tr>
+            <td id="questionNumber">Question number: </td>
+        </tr>
+        <tr>
             <td rowspan="3" class = "pictureCell content" >
                 <img src="" alt="questionPic" style="width:96%;" id="image">
             </td>
@@ -73,13 +76,17 @@
         </tr>
         <tr>
             <td colspan="2" style ="text-align: center;">
-                <label id="feedback" >  </label>
+                <label id="feedback">  </label>
             </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="navBtn" style="float:right" onclick="dealWithButton()"><span id="submitOrNext">Submit</span></button></td>
         </tr>
     </table>
 
     <div>
-        <label class="bottomRight""> <img src="./Images/Other/Starfish.png" alt="Stars" height="40px"> </label>
+        <label class="bottomRight"> <img src="./Images/Other/Starfish.png" alt="Stars" height="40px"> </label>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./gamescript.js"></script>
