@@ -324,10 +324,14 @@ io.sockets.on("connection", (socket) => {
         }
         user.question.questionsAnswered++;
         if (user.question.questionsAnswered >= 7) {
+            let pass = false;
+            if (user.question.questionsAnswered - user.question.questionsRight < 3) {
+                pass = true;
+            }
             if (user.stars[user.level] < 3 - (user.question.questionsAnswered - user.question.questionsRight)) {
                 user.stars[user.level] = 3 - (user.question.questionsAnswered - user.question.questionsRight);
             }
-            io.to(socket.id).emit("done", user.stars, user.level);
+            io.to(socket.id).emit("done", pass);
             user.question = {questionsRight: 0, questionsAnswered: 0};
         }
     });
