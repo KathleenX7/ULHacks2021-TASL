@@ -25,22 +25,36 @@ server.listen(3000, () => {
 app.get('/', (req, res) => {
     // if not logged in, go to login
     // otherwise go to interface stuff
-    res.sendFile(__dirname + '/LoginPage.html');
+    if (req.cookies.userData === undefined) {
+        // not logged in
+        res.redirect("/login"); // so send log in
+    } else {
+        // should redirect to dashboard
+        res.redirect("/game");
+    }
 });
 
-app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/LoginPage.html');
+app.get("/login", (req, res) => {
+    res.sendFile(__dirname + "/LoginPage.html");
 });
 
 // rip cookies
-app.get('/loggedin', (req, res) => {
+app.get("/loggedin", (req, res) => {
     console.log(users);
     userCookie = {username: users[users.length - 1].username, password: users[users.length - 1].password};
     res.cookie("userData", userCookie);
     res.redirect("/");
 });
 
-io.sockets.on('connection', (socket) => {
+app.get("/dashboard", (req, res) => {
+    //dashboard
+});
+
+app.get("/game", (req, res) => {
+    res.sendFile(__dirname + "/Game.html");
+});
+
+io.sockets.on("connection", (socket) => {
     console.log("new user");
     socket.on("login", (msg) => {
         console.log(msg);
