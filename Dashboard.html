@@ -5,10 +5,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
-        /* table, th, td {
+        table, th, td {
           border: 1px solid black;
           border-collapse: collapse;
-        } */
+        }
     </style>
 </head>
 <body onload="requestStarCount()">
@@ -25,7 +25,6 @@
         <tr>
             <td>
                 <button id="leader" class="navBtn"> <span> LEADERBOARD</span></button>
-                
             </td>
             <td>
                 <a href="/logout"><button id="logOut" class="navBtn" style ="float:right"> <span> LOG OUT </span></button></a>
@@ -36,8 +35,14 @@
     <hr style="background-color: #128193; height: 4px "/>
     <table class = "registerInfo">
         <tr >
-            <td class = "dashboardCell">
-                <button onclick="window.location.href='/1'" class="navBtn options"><span>Alphabet</span></button>
+            <td>
+                <button onclick="window.location.href='/1'" class="Topic">
+                    <span>
+                        <label> Alphabet <br> </label> 
+                        <img src="./Images/StarSystem/zerostars.png" alt="Stars" height="30px">
+                    </span>
+                    
+                </button>
             </td>
             <td class = "dashboardCell">
                 <button onclick="window.location.href='/2'" class="navBtn options"><span>Numbers</span></button>
