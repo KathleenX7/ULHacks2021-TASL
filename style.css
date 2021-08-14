@@ -296,3 +296,13 @@ h{
     opacity: 1;
     right: 0;
   }
+
+  .QuestionTable{
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+    outline:10px;
+    width: 96%;
+    height: 300px;
+    margin-left:2%;
+    text-align:left;
+}
