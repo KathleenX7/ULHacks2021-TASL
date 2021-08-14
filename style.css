@@ -6,6 +6,10 @@ body{
 p{
     display:inline;
 }
+h{
+    font-size: 40px;
+    font-weight:  bold;
+}
 
 .loginInfo{
     width: 60%;
@@ -167,4 +171,33 @@ p{
     position:fixed;
     left:10px;
     bottom:10px;
+}
+
+.gameTable{
+    width: 90%;
+    margin-left:5%;
+    text-align:left;
+}
+
+.pictureCell{
+    border:#128193 solid 3px;  
+    position:relative;
+    width:30%; 
+    background-color: white;
+}
+
+.options{
+    font-family: "Poppins", monospace;
+    font-size:15px;
+    width:200px; 
+    height: 80px; 
+    border-color:#128193; 
+    border-radius: 10px; 
+    color: #128193; 
+    background-color: #d1e9edff; 
+    border-style:solid;
+    display: inline-block;
+    box-shadow: 1px 1px 1px grey;
+    line-height: 80px;
+    text-align: center;
 }

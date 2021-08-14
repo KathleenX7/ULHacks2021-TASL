@@ -1,31 +1,84 @@
 <!DOCTYPE html>
+
 <head>
     <title>Teaching American Sign Language</title>
     <link rel="icon" href="../Images/Logo/ShortLogo.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+        /* table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        } */
+    </style>
 </head>
+
 <body>
-    <table class = "navigation">
+    <table class="navigation">
         <tr>
             <td>
                 <button id="return" class="navBtn"> <span> RETURN TO 🏠</span></button>
                 <button id="howPlay" class="helpInfo"> <span> ?</span></button>
             </td>
+            <td rowspan="2">
+                <label id="topic"> <h>Topic</h> </label>
+            </td>
             <td>
-                <button id="leader" class="navBtn" style ="float:right"> <span> LEADERBOARD</span></button>
+                <button id="leader" class="navBtn" style="float:right"> <span> LEADERBOARD</span></button>
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+                <button id="userInfo" class="navBtn"> <span> USER INFO</span></button>
+            </td>
+            <td>
+                <button id="logOut" class="navBtn" style="float:right"> <span> Log OUT </span></button>
+            </td>
+        </tr>
+    </table>
+<!-- 
+    <a href="/"><img src="./Images/Logo/LongLogo.png" alt="TASL| Teaching American Sign Language"
+            style="height: 50px;"></a> -->
+    <hr style="background-color: #128193; height: 4px " />
+        <br>
+    <table class = "gameTable">
+        <tr>
+            <td rowspan="3" class = "pictureCell content" >
+                <img src="./Images/2-Numbers/1.png" alt="questionPic" style="width:96%;">
+            </td>
+            <td>
+                <input type="radio" id="A" value="A">
+                <p>A.  </p>
+                <label id="aValue" class= "options"> Answer </label>
+                
+            </td>
+            <td>
+                <input type="radio" id="B" value="C">
+                <p>B.  </p>
+                <label id="aValue" class= "options"> Answer </label>
             </td>
         </tr>
         <tr>
             <td>
-                <button id="userInfo" class="navBtn" > <span> USER INFO</span></button>
+                <input type="radio" id="C" value="C">
+                <p>C.  </p>
+                <label id="aValue" class= "options"> Answer </label>
+                
             </td>
             <td>
-                <button id="logOut" class="navBtn" style ="float:right"> <span> Log OUT </span></button>
+                <input type="radio" id="D" value="D">
+                <p>D.  </p>
+                <label id="aValue" class= "options"> Answer </label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style ="text-align: center;">
+                <label id="aValue" > WRONG! Correct Answer: A </label>
             </td>
         </tr>
     </table>
 
-    <a href="/"><img src="./Images/Logo/LongLogo.png" alt="TASL| Teaching American Sign Language" style="height: 50px;"></a>
-    <hr style="background-color: #128193; height: 4px "/>
 </body>
