@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
-<body onload="onConnect()">
+<body>
     <img src="./Images/Logo/LongLogo.png" alt="TASL| Teaching American Sign Language" style="height: 50px;">
     <hr style="background-color: #128193; height: 4px "/>
     <!-- Login Info -->
@@ -36,7 +36,7 @@
                 <button id="btnReg" name="btnReg" class = "button"> Register </button>
             </th>
             <th style="text-align:right;">
-                <button id="btnLog" name="btnLog" class = "button"> Log In </button>
+                <button id="btnLog" name="btnLog" class = "button" onClick="sendLoginInfo()"> Log In </button>
             </th>
         </tr>
     </table>

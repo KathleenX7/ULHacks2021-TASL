@@ -3,10 +3,13 @@
  */
 
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const io = require("socket.io")(server);
+
+app.use(cookieParser());
 
 var users = [];
 
@@ -27,4 +30,8 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/LoginPage.html');
+});
+
+io.sockets.on('connection', (socket) => {
+    console.log("new user");
 });
