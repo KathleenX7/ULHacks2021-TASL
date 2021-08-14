@@ -229,4 +229,15 @@ io.sockets.on("connection", (socket) => {
             }
         }
     });
+    socket.on("answer", (data) => {
+        let image = data.image.substring(data.image.lastIndexOf("/") + 1, data.image.indexOf("."));
+        let answer = data.answer;
+        if (image === answer) {
+            //answer is right
+            io.to(socket.id).emit("results", "Correct!");
+        } else {
+            // answer is wrong
+            io.to(socket.id).emit("results", `Incorrect, the right answer is ${image}`);
+        }
+    });
 });
