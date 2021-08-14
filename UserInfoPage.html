@@ -35,7 +35,7 @@
                 <button id="leader" class="navBtn" > <span> LEADERBOARD</span></button>
             </td>
             <td>
-                <button id="logOut" class="navBtn" style="float:right"> <span> LOG OUT </span></button>
+                <a href="logout"><button id="logOut" class="navBtn" style="float:right"> <span> LOG OUT </span></button></a>
             </td>
         </tr>
     </table>
@@ -75,10 +75,11 @@
             <td colspan="2">
                 <label id="errorMes" class="error"> </label>
                 <br>
-                <button id="btnChange" class = "navBtn"> <span> Confirm Change</span></button>
+                <button id="btnChange" class = "navBtn" onclick="sendRegisterInfo()"> <span> Confirm Change</span></button>
             </td>
         </tr>
         
     </table>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./registerscript.js"></script>
 </body>

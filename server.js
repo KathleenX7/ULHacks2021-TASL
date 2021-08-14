@@ -90,6 +90,10 @@ app.get("/game", (req, res) => {
     res.sendFile(__dirname + "/Game.html");
 });
 
+app.get("/userinfo", (req, res) => {
+    res.sendFile(__dirname + "/UserInfoPage.html");
+});
+
 io.sockets.on("connection", (socket) => {
     console.log("new user");
     socket.on("login", (loginData) => {
