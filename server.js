@@ -38,6 +38,39 @@ const questions = {
     commonPhrases: ["Goodbye", "Hello", "I love you", "Nice to meet you", "No", "Please", "Thanks", "Thank you", "Yes"]
 }
 
+/**
+ * Checks if an item is inside an array
+ * @param {any} item the item to check
+ * @param {array} array the array to check in
+ * @returns true if it's inside, false otherwise
+ */
+function isIn(item, array) {
+    for(let i = 0;i < array.length;i++) {
+        if (array[i] === item) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * Picks a certain number of unique elements from an array
+ * @param {array} arr the array to choose from
+ * @param {*} notThis a single element that should not be in the array
+ * @param {integer} size number of unique elements to choose from the array
+ * @returns a new array with size number of unique elements from arr, notThis not included
+ */
+function pickFromArray(arr, notThis, size) {
+    let ret = [];
+    while (ret.length < size) {
+        let item = arr[Math.floor(Math.random()*arr.length)];
+        if ((item !== notThis) && (!isIn(item, ret))) {
+            ret.push(item);
+        }
+    }
+    return ret;
+}
+
 app.use(express.static(__dirname));
 
 /**
@@ -87,11 +120,60 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/game", (req, res) => {
+    const user = req.cookies.userData;
+    const level = req.cookies.level;
+    for(let i = 0;i < users.length;i++) {
+        if (users[i].username === user.username) {
+            users[i].level = level;
+        }
+    }
     res.sendFile(__dirname + "/Game.html");
 });
 
 app.get("/userinfo", (req, res) => {
     res.sendFile(__dirname + "/UserInfoPage.html");
+});
+
+//oof imagine writing good code
+app.get("/1", (req, res) => {
+    res.cookie("level", 1);
+    res.redirect("/game");
+});
+
+app.get("/2", (req, res) => {
+    res.cookie("level", 2);
+    res.redirect("/game");
+});
+
+app.get("/3", (req, res) => {
+    res.cookie("level", 3);
+    res.redirect("/game");
+});
+
+app.get("/4", (req, res) => {
+    res.cookie("level", 4);
+    res.redirect("/game");
+});
+
+app.get("/5", (req, res) => {
+    res.cookie("level", 5);
+    res.redirect("/game");
+});
+
+app.get("/6", (req, res) => {
+    res.cookie("level", 6);
+    res.redirect("/game");
+});
+
+app.get("/7", (req, res) => {
+    res.cookie("level", 7);
+    res.redirect("/game");
+});
+
+app.get("/8", (req, res) => {
+    //since this is final exam, should do some check probably
+    res.cookie("level", 8);
+    res.redirect("/game");
 });
 
 io.sockets.on("connection", (socket) => {
@@ -128,6 +210,23 @@ io.sockets.on("connection", (socket) => {
             // registration successful
             users.push(regData);
             io.to(socket.id).emit("redirect", "/login");
+        }
+    });
+    socket.on("request question", (username) => {
+        for(let i = 0;i < users.length;i++) {
+            if (users[i].username === username) {
+                console.log(users[i]);
+                let level = users[i].level;
+                //send question
+                if (level === "1"){
+                    let index = Math.floor(Math.random()*questions.alphabet.length);
+                    questionsToSend = pickFromArray(questions.alphabet, questions.alphabet[index], 3);
+                    questionsToSend.push(questions.alphabet[index]);
+                    questionsToSend.sort(() => Math.random() - 0.5); //apparently this shuffles (even if it doesn't sorting works fine)
+                    console.log({image: `/1-Alphabet/${questionFiles.alphabet[index]}`, questions: questionsToSend});
+                    io.to(socket.id).emit("question", {image: `/1-Alphabet/${questionFiles.alphabet[index]}`, questions: questionsToSend});
+                }
+            }
         }
     });
 });
