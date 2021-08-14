@@ -6,6 +6,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const http = require('http');
+const { ESRCH } = require('constants');
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 
@@ -73,6 +74,12 @@ app.get("/loggedin", (req, res) => {
     res.cookie("userData", userCookie);
     res.cookie("pfp", userToLogin.pfp);
     res.redirect("/dashboard");
+});
+
+app.get("/logout", (req, res) => {
+    res.clearCookie("userData");
+    res.clearCookie("pfp");
+    res.redirect("/");
 });
 
 app.get("/dashboard", (req, res) => {
