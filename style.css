@@ -1,5 +1,5 @@
 body{
-    font-family: "Poppins", "Lucida Console", monospace;
+    font-family: "Poppins", monospace;
     background-color: #ebfcff;
     color:#128193;
 }
@@ -28,7 +28,7 @@ p{
     font-weight: bold;
 }
 .button{
-    font-family: "Lucida Console", monospace;
+    font-family: "Poppins", monospace;
     width:80px; 
     height: 30px; 
     border-color:#128193; 
