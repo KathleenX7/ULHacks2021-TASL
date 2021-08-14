@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Teaching American Sign Language</title>
+    <link rel="icon" href="./Images/Logo/ShortLogo.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+        /* table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        } */
+    </style>
+</head>
+
+<body>
+    <table class="navigation">
+        <tr>
+            <td style="width: 250px">
+                <a href="/"><button id="return" class="navBtn"> <span> RETURN TO 🏠</span></button></a>
+                <a href="./HowToPlay.html" target="_blank"><button id="howPlay" class="helpInfo"> <span> ?</span></button></a>
+            </td>
+            <td rowspan="2" style ="text-align: center;">
+                <label id="topic"> <h>USER INFO</h> </label>
+            </td>
+            <td style="width: 250px">
+                <button id="userInfo" class="navBtnClicked"style="float:right"> <span> USER INFO</span></button>
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+                <button id="leader" class="navBtn" > <span> LEADERBOARD</span></button>
+            </td>
+            <td>
+                <button id="logOut" class="navBtn" style="float:right"> <span> LOG OUT </span></button>
+            </td>
+        </tr>
+    </table>
+    <hr style="background-color: #128193; height: 4px " />
+    <table class = "registerInfo">
+        <tr>
+            <td style = "width: 70%; vertical-align: bottom;">
+                <label class="infoText"> Name: </label>
+                <br>
+                <input type="text" id="rName" name="rName" class = "textBox"><br>
+                <br>
+            </td>
+            <td rowspan="3">
+                <label class="infoText" style="display: block; text-align: center;">choose your avatar!</label>
+                <button onclick="increasePfpCount()" class = "arrow"><img src="./Images/Other/UpArrow.png" alt="Up Arrow" style="height: 30px;"> </button>
+                <img id="pfp" src="Images/Koro/KoroOriginal.png" class = "center">
+                <button onclick="decreasePfpCount()"class = "arrow"><img src="./Images/Other/DownArrow.png" alt="Down Arrow" style="height: 30px;"></button>
+            </td>
+        </tr>
+        <tr style = "vertical-align: center;">
+            <td > 
+                <label class="infoText"> Username: </label>
+                <br>
+                <input type="text" id="rUser" name="rUser" class = "textBox"><br>
+                <br>
+            </td>
+        </tr>
+        <tr style = "vertical-align: top;">
+            <td>
+                <label class="infoText"> Password: </label>
+                <br>
+                <input type="text" id="rPass" name="rPass" class = "textBox" type="password">
+                
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label id="errorMes" class="error"> </label>
+                <br>
+                <button id="btnChange" class = "navBtn"> <span> Confirm Change</span></button>
+            </td>
+        </tr>
+        
+    </table>
+
+</body>
