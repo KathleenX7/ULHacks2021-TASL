@@ -23,8 +23,8 @@
             <label class="infoText"> Password: </label>
             <br>
             <input type="text" id="tPass" name="tPass" class = "textBox"><br>
-            <br>
             
+            <label id = "errorMes" class="error"> Error </label>
           </th>
         </tr>
     </table>
@@ -33,14 +33,17 @@
     <table class = "info">
         <tr>
             <th style="text-align: left;">
-                <button id="btnReg" name="btnReg" class = "button"> Register </button>
+                <button id="btnReg" name="btnReg" class = "button"> <span>REGISTER</span> </button>
             </th>
             <th style="text-align:right;">
-                <button id="btnLog" name="btnLog" class = "button" onClick="sendLoginInfo()"> Log In </button>
+                <button id="btnLog" name="btnLog" class = "button" onClick="sendLoginInfo()"> <span> LOG IN</span></button>
             </th>
         </tr>
     </table>
-
+    <div">
+        <img src="./Images/Logo/Mascot.png" alt="TASL Mascot" style="float:right; height:200px; transform:rotate(15deg);">
+    </div>
+    
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="./script.js"></script>
