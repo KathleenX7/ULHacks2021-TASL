@@ -1,4 +1,6 @@
 # ULHacks2021-TASL
+TASL seeks to educate and empower learners in American Sign Language by teaching basic vocabulary and grammar. Our goal is to encourage inclusivity and accessibility for the deaf and hard of hearing community.
+
 ## Inspiration
 ### Theme: American Sign Language
 TASL (Teaching American Sign Language) was inspired by a viral video of an American Sign Language interpreter translating lyrics to a live performance at a music festival. We were intrigued by the interpreter’s rapid, rhythmic movements to the beat. The ability to communicate through only movement and facial expressions left us in awe, and we decided to embark on a quest to create an educational tool for ASL learners. Similar to how one might learn a language for the purposes of better communication or appreciation for culture, ASL is a bridge for communication between the two groups that is otherwise disconnected. By creating TASL, we hope to inspire the public to appreciate the community and establish greater accessibility for our society by promoting inclusivity.
