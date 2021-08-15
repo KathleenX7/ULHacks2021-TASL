@@ -15,7 +15,7 @@ TASL is an easy-to-use web application that teaches American Sign Language. Ther
 
 ## How we built it
 ### Planning 
-Our team first had a meeting to discuss possible educational related problems or obstacles, and projects that could be created to meet those needs, as well as possible issues we could face when creating them. We settled on a website that teaches the user [American Sign Language](https://en.wikipedia.org/wiki/American_Sign_Language), and started formulating possible features that could be added to the project, including a point system, stored data through accounts, a friend and leaderboard system, etc. Two of our members started working on the questions and images that were to be used in the game while the other two worked on the code for the website. 
+Our team first had a meeting to discuss possible educational related problems or obstacles, and projects that could be created to meet those needs, as well as possible issues we could face when creating them. We settled on a website that teaches the user [American Sign Language](https://en.wikipedia.org/wiki/American_Sign_Language), and started formulating possible features that could be added to the project, including a point system, stored data through accounts, a friend and leaderboard system, etc. Two of our members started working on the questions and images that are to be used in the game while the other two worked on the code for the website. 
 
 ### Questions
 After deciding on the topics and mechanics of the game, we chose questions and symbols that fit those topics. We organized all of the above using Google Sheets, and created multiple choice questions for each category. The final exam contains questions chosen from each of the previous topics. 
@@ -27,7 +27,7 @@ The back end was built using [node.js](https://nodejs.org/en/), [socket.io](http
 None of our team members had knowledge regarding the use of web cookies, so it had to be learned during the hackathon. It was a challenge to set up the cookies on the web page and read from them. Some of our images were (and still are) blurry due to how quickly we had to put this together.
 
 ## Accomplishments that we're proud of
-Our mascot’s name took a great deal of debating and brainstorming, so we are quite proud of the name we ended up creating, which has three different meanings; TASL is an acronym for Teaching American Sign Language, as a scholarly octopus mascot, Tassel wears a tassel on its cap, and Tassel additionally shares a name with TASL as a homonym. We put in 85 questions! We’re also very proud of the graphics; they’re smooth and look nice (blurry images aside).
+Our mascot’s name took a great deal of debating and brainstorming, so we are quite proud of the name we ended up creating, which has three different meanings. Firstly, TASL is an acronym for Teaching American Sign Language. Secondly, as a scholarly octopus mascot, Tassel wears a tassel on its cap. Tassel additionally shares a name with TASL as a homonym. We put in 85 questions! We’re also very proud of the graphics; they’re smooth and look nice (blurry images aside).
 
 ## What we learned
 We learned how to use express cookies, how to use an external style sheet for CSS, that [Google Slides](https://docs.google.com/presentation) is actually a really good planning platform. The most important thing we learned during this hack was ASL.
