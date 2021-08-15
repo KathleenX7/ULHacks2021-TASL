@@ -289,8 +289,8 @@ h{
     transition: 0.5s;
   }
   
-  .navTopicBtn:hover span {
-    padding-right: 10px;
+  .Topic:hover span {
+    padding-right: 25px;
   }
   
   .Topic:hover span:after {
