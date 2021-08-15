@@ -18,6 +18,7 @@ var radC = document.getElementById("C");
 var radD = document.getElementById("D");
 
 var feedback = document.getElementById("feedback");
+var starImages = document.getElementById("starImageDisplay");
 var questionCounter = document.getElementById("questionNumber");
 var whyAmIEvenKeepingTrackOfThis = document.getElementById("submitOrNext");
 
@@ -92,6 +93,16 @@ socket.on("question", (data) => {
 
 socket.on("results", (response) => {
     feedback.innerHTML = response.feedback;
+    if (!response.correct) {
+        console.log(starImages.getAttribute("src"));
+        if (starImages.getAttribute("src") === "./Images/StarSystem/threestars.png") {
+            starImages.src = "./Images/StarSystem/twostars.png";
+        } else if (starImages.getAttribute("src") === "./Images/StarSystem/twostars.png") {
+            starImages.src = "./Images/StarSystem/onestar.png";
+        } else if (starImages.getAttribute("src") === "./Images/StarSystem/onestar.png") {
+            starImages.src = "./Images/StarSystem/zerostars.png";
+        }
+    }
 });
 
 socket.on("done", (passStatus) => {
