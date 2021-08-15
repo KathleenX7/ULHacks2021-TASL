@@ -268,7 +268,9 @@ io.sockets.on("connection", (socket) => {
                 }else if (level === "8"){
                     //combines all the questions
                     let combined = questions.alphabet.concat(questions.numbers, questions.oneWordQuestions, questions.adjectives, questions.nouns, questions.verbs, questions.commonPhrases);
-                    let index = Math.floor(Math.random()*combined);
+                    let index = Math.floor(Math.random()*combined.length);
+                    console.log(index);
+                    console.log(combined[index]);
                     questionsToSend = pickFromArray(combined, combined[index], 3);
                     questionsToSend.push(combined[index]);
                     questionsToSend.sort(() => Math.random() - 0.5); //apparently this shuffles (even if it doesn't sorting works fine)
@@ -279,7 +281,7 @@ io.sockets.on("connection", (socket) => {
                     } else if (index < 44) {
                         io.to(socket.id).emit("question", {image: `/3-OneWordQuestions/${questionFiles.oneWordQuestions[index - 37]}`, questions: questionsToSend});
                     } else if (index < 60) {
-                        io.to(socket.id).emit("question", {image: `/4-Adjectives/${questionFiles.adjectives[index - 37]}`, questions: questionsToSend});
+                        io.to(socket.id).emit("question", {image: `/4-Adjectives/${questionFiles.adjectives[index - 44]}`, questions: questionsToSend});
                     } else if (index < 67) {
                         io.to(socket.id).emit("question", {image: `/5-Nouns/${questionFiles.nouns[index - 60]}`, questions: questionsToSend});
                     } else if (index < 76) {
