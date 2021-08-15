@@ -4,7 +4,23 @@
 var socket = io.connect();
 
 const username = getUsername();
+const starImageMap = {
+    0: "./Images/StarSystem/zerostars.png",
+    1: "./Images/StarSystem/onestar.png",
+    2: "./Images/StarSystem/twostars.png",
+    3: "./Images/StarSystem/threestars.png"
+}
 var starCounter = document.getElementById("starCount");
+var starCounters = [
+    document.getElementById("1"),
+    document.getElementById("2"),
+    document.getElementById("3"),
+    document.getElementById("4"),
+    document.getElementById("5"),
+    document.getElementById("6"),
+    document.getElementById("7"),
+    document.getElementById("8")
+]
 
 /**
  * Parses cookies and stuff to figure out what the username is
@@ -30,8 +46,23 @@ function requestStarCount() {
     socket.emit("star request", username);
 }
 
+/**
+ * Idc about no trust client anymore issok
+ */
+function reallyBadFunction() {
+    if(starCounter.innerHTML >= 15) {
+        window.location.href="/8";
+    } else {
+        alert("You need 15 stars before you can do the final exam!");
+    }
+
+}
+
 socket.on("stars", (starData) => {
     console.log(starData);
     let totalStars = starData[1] + starData[2] + starData[3] + starData[4] + starData[5] + starData[6] + starData[7];
+    for (let i = 0;i < starCounters.length;i++) {
+        starCounters[i].src = starImageMap[starData[i + 1]];
+    }
     starCounter.innerHTML = totalStars;
 })
