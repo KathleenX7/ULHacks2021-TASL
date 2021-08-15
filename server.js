@@ -287,7 +287,7 @@ io.sockets.on("connection", (socket) => {
                     } else if (index < 76) {
                         io.to(socket.id).emit("question", {image: `/6-Verbs/${questionFiles.verbs[index - 67]}`, questions: questionsToSend});
                     } else if (index < 85) {
-                        io.to(socket.id).emit("question", {image: `/7-CommonPhrases/${questionFiles.numbers[index - 76]}`, questions: questionsToSend});
+                        io.to(socket.id).emit("question", {image: `/7-CommonPhrases/${questionFiles.commonPhrases[index - 76]}`, questions: questionsToSend});
                     } else {
                         console.log("smh what's wrong with your counting")
                     }
