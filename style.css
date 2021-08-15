@@ -109,6 +109,7 @@ h{
     margin:0 auto;
     border-style: solid;
     font-size:0;
+    cursor:pointer;
 }
 
 .buttonRight{

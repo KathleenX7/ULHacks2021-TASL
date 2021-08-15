@@ -5,23 +5,23 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
-        /* table, th, td {
+        table, th, td {
           border: 1px solid black;
           border-collapse: collapse;
-        } */
+        }
     </style>
 </head>
 <body onload="requestStarCount()">
     <table class = "navigation">
         <tr>
-            <td>
+            <td style="width: 250px">
                 <a href="/"></a><button id="start" class="navBtnClicked"> <span> RETURN TO 🏠</span></button></a>
                 <a href="./HowToPlay.html" target="_blank"><button id="howPlay" class="helpInfo"> <span> ?</span></button></a>
             </td>
             <td rowspan="2" style ="text-align: center;">
                 <label id="topic"> <h>Dashboard</h> </label>
             </td>
-            <td>
+            <td style="width: 250px">
                 <a href="/userinfo"><button id="userInfo" class="navBtn"  style ="float:right"> <span> USER INFO</span></button></a>
             </td>
         </tr>
@@ -98,12 +98,21 @@
                     </span>
                 </button>
             </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div>
+                    <label style="font-size: 30px;"> <img src="./Images/Other/Starfish.png" alt="Stars" height="30px"> <p id="starCount">0</p>  </label>
+                </div>                
+            </td>
+
         </tr>
     </table>
     
-    <div>
-        <label class="bottomRight" style="font-size: 30px;"> <img src="./Images/Other/Starfish.png" alt="Stars" height="30px"> <p id="starCount">0</p>  </label>
-    </div>
+    
     <script src="/socket.io/socket.io.js"></script>
     <script src="./dashboardscript.js"></script>
 </body>
